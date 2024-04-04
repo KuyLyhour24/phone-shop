@@ -11,5 +11,5 @@ import com.lyhour.java.study.phone_shop.entity.Brand;
 public interface BrandRepository extends JpaRepository<Brand, Integer> {
 
 	List<Brand> findByNameContaining(String name); 
-	List<Brand> findByNameLike(String name);
+	
 }

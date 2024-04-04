@@ -8,6 +8,5 @@ public interface BrandService {
 	Brand create(Brand brand);
 	Brand getById(Integer brandId);
 	Brand update(Brand brandUpdate, Integer id);
-	List<Brand> getBrand();
 	List<Brand> getBrand(String name);
 }

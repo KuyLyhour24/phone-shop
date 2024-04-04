@@ -35,11 +35,6 @@ public class BrandSerivceImpl implements BrandService {
 	}
 
 	@Override
-	public List<Brand> getBrand() {
-		return brandRepository.findAll();
-	}
-
-	@Override
 	public List<Brand> getBrand(String name) {
 		return brandRepository.findByNameContaining(name);
 	}

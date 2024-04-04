@@ -44,16 +44,8 @@ public class BrandController {
 		Brand updateBrand = brandService.update(brand, brandId);
 		return ResponseEntity.ok(BrandMapper.INSTANCE.toBrandDTO(updateBrand));
 	}
-	@GetMapping
-	public ResponseEntity<?> getBrands(){
-		List<BrandDTO> list = brandService.getBrand()
-				.stream()
-				.map(brand -> BrandMapper.INSTANCE.toBrandDTO(brand))
-				.collect(Collectors.toList());
-		return ResponseEntity.ok(list);
-	}
 	
-	@GetMapping("filter")
+	@GetMapping
 	public ResponseEntity<?> getBrands(@RequestParam("name") String name){
 		List<BrandDTO> list = brandService.getBrand(name)
 				.stream()
