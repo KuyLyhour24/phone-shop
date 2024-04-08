@@ -1,6 +1,9 @@
 package com.lyhour.java.study.phone_shop.service;
 
 import java.util.List;
+import java.util.Map;
+
+import org.springframework.data.domain.Page;
 
 import com.lyhour.java.study.phone_shop.entity.Brand;
 
@@ -8,6 +11,9 @@ public interface BrandService {
 	Brand create(Brand brand);
 	Brand getById(Integer brandId);
 	Brand update(Brand brandUpdate, Integer id);
-	List<Brand> getBrand();
-	List<Brand> getBrand(String name);
+	
+	List<Brand> getBrands(String name);
+	//List<Brand> getBrands(Map<String,String> params);
+	
+	Page<Brand> getBrands(Map<String, String> params);
 }
