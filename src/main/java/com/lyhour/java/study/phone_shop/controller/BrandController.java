@@ -1,5 +1,6 @@
 package com.lyhour.java.study.phone_shop.controller;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,16 +16,25 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.lyhour.java.study.phone_shop.dto.BrandDTO;
+import com.lyhour.java.study.phone_shop.dto.ModelDTO;
 import com.lyhour.java.study.phone_shop.dto.PageDTO;
 import com.lyhour.java.study.phone_shop.entity.Brand;
+import com.lyhour.java.study.phone_shop.entity.Model;
 import com.lyhour.java.study.phone_shop.mapper.BrandMapper;
+import com.lyhour.java.study.phone_shop.mapper.ModelEntityMapper;
 import com.lyhour.java.study.phone_shop.service.BrandService;
+import com.lyhour.java.study.phone_shop.service.ModelService;
+
+import lombok.RequiredArgsConstructor;
 
 @RestController
+@RequiredArgsConstructor
 @RequestMapping("brands")
 public class BrandController {
-	@Autowired
-	private BrandService brandService;
+	
+	private final BrandService brandService;
+	private final ModelService modelService;
+	private final ModelEntityMapper modelMapper;
 	
 	@PostMapping
 	public ResponseEntity<?> create(@RequestBody BrandDTO brandDTO) {
@@ -59,6 +69,15 @@ public class BrandController {
 			.collect(Collectors.toList());
 		*/
 		return ResponseEntity.ok(pageDTO);
+	}
+	@GetMapping("{id}/models")
+	public ResponseEntity<?> getModelByBrandId(@PathVariable("id") Integer brandId){
+		List<Model> brand = modelService.getModelByBrandId(brandId);
+		List<ModelDTO> list = brand.stream()
+		.map(modelMapper::toModelDTO) //Method Reference or we can use .map(model -> modelMapper.toModelDTO(model))
+		.toList();
+		return ResponseEntity.ok(list);
+	
 	}
 	
 	
