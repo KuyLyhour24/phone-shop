@@ -9,8 +9,8 @@ import com.lyhour.java.study.phone_shop.entity.Brand;
 
 public interface BrandService {
 	Brand create(Brand brand);
-	Brand getById(Integer brandId);
-	Brand update(Brand brandUpdate, Integer id);
+	Brand getById(Long brandId);
+	Brand update(Brand brandUpdate, Long id);
 	
 	List<Brand> getBrands(String name);
 	//List<Brand> getBrands(Map<String,String> params);

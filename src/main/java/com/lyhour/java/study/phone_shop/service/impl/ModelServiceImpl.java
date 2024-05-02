@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.lyhour.java.study.phone_shop.dto.ModelDTO;
 import com.lyhour.java.study.phone_shop.entity.Model;
+import com.lyhour.java.study.phone_shop.exception.ResourceNotFoundException;
 import com.lyhour.java.study.phone_shop.mapper.ModelEntityMapper;
 import com.lyhour.java.study.phone_shop.repository.ModelRepository;
 import com.lyhour.java.study.phone_shop.service.ModelService;
@@ -25,9 +26,16 @@ public class ModelServiceImpl implements ModelService{
 
 
 	@Override
-	public List<Model> getModelByBrandId(Integer id) {
+	public List<Model> getModelByBrandId(Long id) {
 		
 		return modelRepository.findModelByBrandId(id);
+	}
+
+
+	@Override
+	public Model getById(Long Id) {
+		return modelRepository.findById(Id)
+				.orElseThrow(()->new ResourceNotFoundException("Model", Id));
 	}
 
 }
