@@ -30,7 +30,7 @@ public class SaleDetail {
 	@JoinColumn(name = "product_id")
 	private Product product;
 
-	@Column(name = "sold_date")
+	@Column(name = "sold_price")
 	private BigDecimal amount;
 	
 	@Column(name="unit")

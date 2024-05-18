@@ -36,7 +36,7 @@ public class Product {
 	private String imagePath;
 	
 	@Column(name="sale_price")
-	private BigDecimal saleprice;
+	private BigDecimal salePrice;
 	
 	@ManyToOne
 	@JoinColumn(name="model_id")

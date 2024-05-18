@@ -23,8 +23,7 @@ public class ColorServiceImpl implements ColorService{
 
 	@Override
 	public Color create(Color color) {
-		// TODO Auto-generated method stub
-		return null;
+		return colorRepository.save(color);
 	}
 
 }
