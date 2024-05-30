@@ -11,7 +11,6 @@ import com.lyhour.java.study.phone_shop.entity.Product;
 public interface ProductService {
 	Product create(Product product);
 	Product getById(Long id);
-	Product getModelId(Long id);
 	Product getByModelIdAndColorId(Long modelId, Long colorId);
 	void createImport(ProductImportDTO improtDTO);
 	void setPrice(Long id, BigDecimal price);

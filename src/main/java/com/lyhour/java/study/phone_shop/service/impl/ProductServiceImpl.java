@@ -109,12 +109,7 @@ public class ProductServiceImpl implements ProductService{
 					LocalDateTime dateTime= cellDate.getLocalDateTimeCellValue();
 					
 					Product product = getByModelIdAndColorId(modelId, colorId);
-					if(modelId != product.getModel().getId()) {
-						throw new ResourceNotFoundException("Model", modelId);
-					}
-					if(colorId != product.getColor().getId()) {
-						throw new ResourceNotFoundException("Model", colorId);
-					}
+					
 					
 					Integer availableUnit= 0;
 					if(product.getAvailableUnit()!=null) {
@@ -151,12 +146,6 @@ public class ProductServiceImpl implements ProductService{
 		return productRepository.findByModelIdAndColorId(modelId, colorId)
 				.orElseThrow(() -> new ApiException(HttpStatus.NOT_FOUND,text.formatted(modelId, colorId) ));
 	}
-	@Override
-	public Product getModelId(Long id) {
-		
-		return null;
-	}
-	
 		
 	
 	
