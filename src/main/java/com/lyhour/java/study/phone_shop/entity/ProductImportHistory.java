@@ -16,12 +16,18 @@ import javax.persistence.TemporalType;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
 @Setter
 @Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "productImportHistories")
 public class ProductImportHistory {
 	@Id
