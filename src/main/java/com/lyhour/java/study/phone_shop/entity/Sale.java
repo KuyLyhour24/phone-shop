@@ -22,6 +22,8 @@ public class Sale {
 	@Column(name="sold_date")
 	private LocalDateTime soldDate;
 	
+	private Boolean active;
+	
 	
 
 }

@@ -1,7 +1,9 @@
 package com.lyhour.java.study.phone_shop.controller;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,6 +21,12 @@ public class SaleController {
 	@PostMapping
 	public ResponseEntity<?> saleProduct(@RequestBody SalesDTO saleDTO){
 		saleService.sell(saleDTO);
+		return ResponseEntity.ok().build();
+	}
+	
+	@PutMapping("{saleId}/cancel")
+	public ResponseEntity<?> cancelSale(@PathVariable Long saleId){
+		saleService.cancelSale(saleId);
 		return ResponseEntity.ok().build();
 	}
 
