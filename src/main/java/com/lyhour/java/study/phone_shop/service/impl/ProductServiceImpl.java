@@ -1,10 +1,14 @@
 package com.lyhour.java.study.phone_shop.service.impl;
 
+import java.math.BigDecimal;
+
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import com.lyhour.java.study.phone_shop.dto.ProductImportDTO;
 import com.lyhour.java.study.phone_shop.entity.Product;
 import com.lyhour.java.study.phone_shop.entity.ProductImportHistory;
+import com.lyhour.java.study.phone_shop.exception.ApiException;
 import com.lyhour.java.study.phone_shop.exception.ResourceNotFoundException;
 import com.lyhour.java.study.phone_shop.mapper.ProductMapper;
 import com.lyhour.java.study.phone_shop.repository.ProductImportRepository;
@@ -48,6 +52,15 @@ public class ProductServiceImpl implements ProductService{
 	
 		
 	}
+	@Override
+	public void setPrice(Long id, BigDecimal price) {
+		Product product = getById(id);
+		product.setSalePrice(price);
+		productRepository.save(product);
+		
+	}
+		
+	
 	
 
 }
