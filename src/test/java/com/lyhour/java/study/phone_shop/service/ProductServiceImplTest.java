@@ -20,8 +20,9 @@ public class ProductServiceImplTest {
 	
 	@Test
 	public void testSetPrice() {
-		Product product = new Product();
-		product.setName("IP14");
+		Product product = Product.builder()
+				.name("IP14")
+				.build();
 		productRepository.save(product);
 		
 		BigDecimal price = new BigDecimal(1700);
