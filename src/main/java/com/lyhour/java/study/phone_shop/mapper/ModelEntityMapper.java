@@ -9,9 +9,9 @@ import com.lyhour.java.study.phone_shop.entity.Model;
 import com.lyhour.java.study.phone_shop.service.BrandService;
 //Use Brand Service to call function getByID
 @Mapper(componentModel = "spring" ,uses = BrandService.class)
-public interface ModelMapper {
+public interface ModelEntityMapper {
 	
-	ModelMapper INSTANCE = Mappers.getMapper(ModelMapper.class);
+	ModelEntityMapper INSTANCE = Mappers.getMapper(ModelEntityMapper.class);
 	@Mapping(target ="brand", source = "brandId")
 	Model toModel(ModelDTO modeldto);
 	@Mapping(target="brandId", source= "brand.id")
