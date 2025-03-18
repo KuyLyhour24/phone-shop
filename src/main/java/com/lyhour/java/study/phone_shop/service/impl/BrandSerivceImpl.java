@@ -16,10 +16,15 @@ import com.lyhour.java.study.phone_shop.service.util.PageUtil;
 import com.lyhour.java.study.phone_shop.spec.BrandFilter;
 import com.lyhour.java.study.phone_shop.spec.BrandSpec;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.RequiredArgsConstructor;
+
 @Service
+@RequiredArgsConstructor
 public class BrandSerivceImpl implements BrandService {
 	@Autowired
-	private BrandRepository brandRepository;
+	private final BrandRepository brandRepository;
 
 	@Override
 	public Brand create(Brand brand) {
