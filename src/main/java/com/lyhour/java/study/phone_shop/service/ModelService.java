@@ -6,5 +6,6 @@ import com.lyhour.java.study.phone_shop.entity.Model;
 
 public interface ModelService {
    Model save(Model model);
-   List<Model> getModelByBrandId(Integer id);
+   List<Model> getModelByBrandId(Long id);
+   Model getById(Long Id);
 }
